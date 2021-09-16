@@ -1,5 +1,6 @@
 package com.rachana.chat.realtime_app.controller;
 
+import com.rachana.chat.realtime_app.Message;
 import com.rachana.chat.realtime_app.producer.Producer;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +16,7 @@ public class ChatController {
     }
 
     @PostMapping(value = "/send", consumes = "application/json")
-    public void sendMessage(@RequestBody String message) {
+    public void sendMessage(@RequestBody Message message) {
         producer.publish(message);
     }
 }

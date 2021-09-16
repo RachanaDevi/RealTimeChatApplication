@@ -1,5 +1,6 @@
 package com.rachana.chat.realtime_app.producer;
 
+import com.rachana.chat.realtime_app.Message;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -15,10 +16,10 @@ class ProducerUnitTest {
 
     @Test
     void shouldPublishAnEventWithGivenTopic() {
-        KafkaTemplate<String, String> kafkaTemplate = mock(KafkaTemplate.class);
+        KafkaTemplate<String, Message> kafkaTemplate = mock(KafkaTemplate.class);
 
         Producer producer = new Producer(kafkaTemplate);
-        producer.publish("message");
+        producer.publish(new Message("sender","message"));
 
         ArgumentCaptor<String> topicArgumentCaptor = ArgumentCaptor.forClass(String.class);
         verify(kafkaTemplate).send(topicArgumentCaptor.capture(), any());
@@ -28,14 +29,15 @@ class ProducerUnitTest {
 
     @Test
     void shouldPublishEventWithGivenMessage() {
-        KafkaTemplate<String, String> kafkaTemplate = mock(KafkaTemplate.class);
+        KafkaTemplate<String, Message> kafkaTemplate = mock(KafkaTemplate.class);
 
         Producer producer = new Producer(kafkaTemplate);
-        producer.publish("message");
+        Message message = new Message("sender", "message");
+        producer.publish(message);
 
-        ArgumentCaptor<String> messageArgumentCaptor = ArgumentCaptor.forClass(String.class);
+        ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
         verify(kafkaTemplate).send(any(), messageArgumentCaptor.capture());
 
-        assertThat(messageArgumentCaptor.getValue()).isEqualTo("message");
+        assertThat(messageArgumentCaptor.getValue()).isEqualTo(message);
     }
 }

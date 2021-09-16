@@ -1,5 +1,6 @@
 package com.rachana.chat.realtime_app.producer;
 
+import com.rachana.chat.realtime_app.Message;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,7 +23,8 @@ public class ProducerIntegrationTest {
     @Test
     @DirtiesContext
     void shouldPublishMessage() throws ExecutionException, InterruptedException {
-        ListenableFuture<SendResult<String, String>> content = producer.publish("content");
+        Message message = new Message("sender", "content");
+        ListenableFuture<SendResult<String, Message>> content = producer.publish(message);
 
         assertThat(content.get().getProducerRecord().topic()).isEqualTo("message-topic");
     }
