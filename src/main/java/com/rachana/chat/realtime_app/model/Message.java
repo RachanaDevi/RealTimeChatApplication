@@ -1,4 +1,4 @@
-package com.rachana.chat.realtime_app;
+package com.rachana.chat.realtime_app.model;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -16,6 +16,9 @@ public class Message {
 
     @JsonProperty
     private String timestamp;
+
+    public Message() {
+    }
 
     public Message(String sender, String content) {
         this.sender = sender;

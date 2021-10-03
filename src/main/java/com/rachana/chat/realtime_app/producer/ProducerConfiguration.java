@@ -1,6 +1,6 @@
 package com.rachana.chat.realtime_app.producer;
 
-import com.rachana.chat.realtime_app.Message;
+import com.rachana.chat.realtime_app.model.Message;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;

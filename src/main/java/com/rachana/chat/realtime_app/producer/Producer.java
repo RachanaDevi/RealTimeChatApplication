@@ -1,6 +1,6 @@
 package com.rachana.chat.realtime_app.producer;
 
-import com.rachana.chat.realtime_app.Message;
+import com.rachana.chat.realtime_app.model.Message;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;

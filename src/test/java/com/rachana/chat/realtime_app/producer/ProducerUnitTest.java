@@ -1,11 +1,9 @@
 package com.rachana.chat.realtime_app.producer;
 
-import com.rachana.chat.realtime_app.Message;
+import com.rachana.chat.realtime_app.model.Message;
 import org.junit.jupiter.api.Test;
 import org.mockito.ArgumentCaptor;
 import org.springframework.kafka.core.KafkaTemplate;
-
-import java.util.concurrent.ExecutionException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;

@@ -1,7 +1,7 @@
 package com.rachana.chat.realtime_app.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.rachana.chat.realtime_app.Message;
+import com.rachana.chat.realtime_app.model.Message;
 import com.rachana.chat.realtime_app.producer.Producer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

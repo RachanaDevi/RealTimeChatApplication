@@ -1,6 +1,6 @@
 package com.rachana.chat.realtime_app.producer;
 
-import com.rachana.chat.realtime_app.Message;
+import com.rachana.chat.realtime_app.model.Message;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
