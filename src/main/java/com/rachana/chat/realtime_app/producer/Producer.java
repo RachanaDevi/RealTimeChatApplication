@@ -6,6 +6,8 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.stereotype.Component;
 import org.springframework.util.concurrent.ListenableFuture;
 
+import static com.rachana.chat.realtime_app.constants.KafkaConfigConstants.MESSAGE_TOPIC;
+
 @Component
 public class Producer {
 
@@ -16,6 +18,6 @@ public class Producer {
     }
 
     public ListenableFuture<SendResult<String, Message>> publish(Message message) {
-        return kafkaTemplate.send("message-topic", message);
+        return kafkaTemplate.send(MESSAGE_TOPIC, message);
     }
 }
