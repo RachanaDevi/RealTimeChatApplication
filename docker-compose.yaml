@@ -18,3 +18,12 @@ services:
     image: zookeeper
     ports:
       - "2181:2181"
+  kafdrop:
+    image: obsidiandynamics/kafdrop
+    depends_on:
+      - zookeeper
+      - kafka
+    environment:
+      KAFKA_BROKERCONNECT: "kafka:9093"
+    ports:
+      - "9000:9000"
