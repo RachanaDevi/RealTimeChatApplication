@@ -11,9 +11,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class MessageConsumer {
 
-    private Logger logger = LoggerFactory.getLogger(MessageConsumer.class.getName());
+    private final Logger logger = LoggerFactory.getLogger(MessageConsumer.class.getName());
 
-    private SimpMessagingTemplate simpMessagingTemplate;
+    private final SimpMessagingTemplate simpMessagingTemplate;
 
     public MessageConsumer(SimpMessagingTemplate simpMessagingTemplate) {
         this.simpMessagingTemplate = simpMessagingTemplate;
